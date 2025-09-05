@@ -1,0 +1,241 @@
+/* ---------- Basic ---------- */
+:root {
+  --primary: #0d6efd;
+}
+
+/* ---------- Top bar ---------- */
+.top-bar {
+  font-size: 0.95rem;
+  position: sticky;   /* stays on top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1060;      /* above navbar */
+  background-color: #212529;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 1rem;
+}
+
+.top-bar .top-link {
+  transition: color 0.2s ease;
+}
+.top-bar .top-link:hover {
+  color: #ffc107;
+}
+
+/* Make topbar buttons rounded */
+.topbar-right .btn {
+  border-radius: 30px;
+}
+
+/* ---------- Logo responsive ---------- */
+.logo {
+  height: auto;
+  max-height: 64px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .logo {
+    max-height: 52px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    max-height: 42px;
+    margin: 0 auto;
+  }
+  .navbar .container {
+    justify-content: center;
+  }
+  .navbar .navbar-toggler {
+    position: absolute;
+    right: 1rem;
+  }
+}
+
+/* ---------- Carousel slider ---------- */
+.slider-img {
+  height: 20rem;
+  object-fit: cover;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .slider-img {
+    height: 300px;
+  }
+}
+
+.carousel-caption {
+  background: rgba(0,0,0,0.45);
+  padding: .8rem 1rem;
+  border-radius: .5rem;
+}
+
+/* ---------- Mega menu ---------- */
+.mega-menu {
+  --mega-max: min(1100px, 100vw - 2rem);
+  width: var(--mega-max);
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  top: 100%;
+  padding: 1rem;
+  border-radius: .5rem;
+}
+
+.mega-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: .5rem 1rem;
+}
+
+.mega-title {
+  grid-column: 1 / -1;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: .25rem;
+}
+
+@media (min-width: 992px) {
+  .mega-dropdown:hover > .dropdown-menu {
+    display: block;
+  }
+}
+
+/* ---------- Full-width sections ---------- */
+.full-section {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .full-section {
+    height: 360px;
+    font-size: 1.4rem;
+    padding: 1rem;
+    text-align: center;
+  }
+}
+
+/* ---------- Small UI touches ---------- */
+.service-box, .dropdown-item {
+  cursor: pointer;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  position: sticky;
+  top: 40px; /* below top bar */
+  z-index: 1050;
+  background-color: var(--primary);
+  min-height: 3rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  height: 30px;
+  width: auto;
+  max-height: 100%;
+}
+
+.navbar-nav .nav-link {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background: #212529;
+  color: #adb5bd;
+  padding: 40px 0 20px;
+}
+
+footer a {
+  color: #adb5bd;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+/* ---------- Clean static 3-dot navbar toggler ---------- */
+.navbar-toggler {
+  border: none !important;
+  outline: none !important;
+  padding: 0.5rem;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-toggler-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after,
+.navbar-toggler-icon span {
+  content: "";
+  width: 6px;          /* dot size */
+  height: 6px;
+  background: #fff;    /* white for navbar */
+  border-radius: 50%;
+  display: block;
+  transition: none;    /* remove any transition */
+}
+
+/* Middle dot */
+.navbar-toggler-icon span {
+  background: #fff;
+}
+
+/* Remove hover effects */
+.navbar-toggler:hover .navbar-toggler-icon::before,
+.navbar-toggler:hover .navbar-toggler-icon::after,
+.navbar-toggler:hover .navbar-toggler-icon span {
+  background: #fff;
+  box-shadow: none;
+}
+
+/* On open → keep dots static */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before,
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after,
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon span {
+  transform: none;
+  opacity: 1;
+}
+
+/* Only show toggler on small screens */
+@media (min-width: 992px) {
+  .navbar-toggler {
+    display: none;
+  }
+}
+
+/* ---------- Hide carousel on small devices ---------- */
+@media (max-width: 767px) {
+  .carousel {
+    display: none !important;
+  }
+}
